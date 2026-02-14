@@ -1,0 +1,17 @@
+негативная проверка, должны были упасть все тесты , а упал только один
+  string = '   ', symbol = '   ', expected = '   '
+
+    @pytest.mark.negative()
+    @pytest.mark.parametrize("string, symbol, expected", [
+        ("", "", ""),
+        ("   ", "   ", "   "),
+        ("11111", "A", "11111"),
+        ("skypro", "x", "skypro"),
+    ])
+    def test_delete_symbol_negative(string, symbol, expected):
+>       assert string_utils.delete_symbol(string, symbol) == expected
+E       AssertionError: assert '' == '   '
+E
+E         Strings contain only whitespace, escaping them using repr()
+E         - '   '
+E         + ''
